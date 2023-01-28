@@ -38,7 +38,7 @@ table.insert(data.raw.technology['warptorio-reactor-7'].prerequisites, 'rocket-s
 -- note: in normal warptorio it is actually late red, but I think this is reasonable
 local harvester_tech = data.raw.technology['warptorio-harvester-floor']
 for i,prereq in pairs(harvester_tech.prerequisites) do
-    if prereq == "ir-inserters-2" then
+    if prereq == "fast-inserter" then
         harvester_tech.prerequisites[i] = "engine"
     end
 end
