@@ -1,4 +1,10 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.0.3
+Date: 2023-01-30
+  Changes:
+    - Rebalance warptorio techs with dependencies that move in IR3
+    - Enable fissures, and add a chance for the starting fissure to appear
+---------------------------------------------------------------------------------------------------
 Version: 0.0.2
 Date: 2023-01-27
   Changes:
