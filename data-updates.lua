@@ -32,16 +32,6 @@ for i, prereq in pairs(silo_tech.prerequisites) do
 end
 table.insert(data.raw.technology['warptorio-reactor-7'].prerequisites, 'rocket-silo')
 
-
--- TECHNOLOGY REBALANCES
--- harvester floor is locked behind blue science. rebalance it to be very early g science.
--- note: in normal warptorio it is actually late red, but I think this is reasonable
-local harvester_tech = data.raw.technology['warptorio-harvester-floor']
-for i,prereq in pairs(harvester_tech.prerequisites) do
-    if prereq == "fast-inserter" then
-        harvester_tech.prerequisites[i] = "engine"
-    end
-end
-
 -- Add shotgun turrets to warptorio damage researches
 table.insert(data.raw.technology["warptorio-physdmg-1"].effects, {type="turret-attack",modifier=0.15,turret_id="scattergun-turret"})
+
