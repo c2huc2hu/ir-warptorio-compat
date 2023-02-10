@@ -1,6 +1,6 @@
 {
     "name": "ir-warptorio-compat",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "title": "Industrial Revolution Warptorio Compatibility",
     "author": "jobjams",
     "dependencies": ["base >= 1.1", "IndustrialRevolution3 >= 1.0.0", "warptorio2 >= 1.1.87", "planetorio >= 0.1.4",

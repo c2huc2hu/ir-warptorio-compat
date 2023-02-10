@@ -1,11 +1,17 @@
 require("control-functions") -- add_starting_fissure
 
 function on_warp(event)
-    remote.call("ir-world", "allow-surface-fissures", event.newsurface.name, true)
+    -- Add surface gems on resource-specific worlds
+    for _,flag in pairs(event.newplanet.flags) do
+        if flag == "resource-specific" then
+            remote.call("ir-world", "allow-surface-gems", event.newsurface.name, true)
+        end
+    end
 
     -- IR calls this on startup, not when surfaces are generated.
     -- This only adds a steam fissure and not any other modded fissures
     if math.random() < 0.3 then -- fissures are great if you get them. don't make it too easy :D
+        remote.call("ir-world", "allow-surface-fissures", event.newsurface.name, true)
         add_starting_fissure(event.newsurface)
     end
 end
@@ -33,8 +39,15 @@ function on_init(event)
         required_controls={"tin-ore"},
     })
 
+    register_warptorio_events()
+end
+
+
+-- Called on load so on_warp changes are added to existing saves
+function register_warptorio_events(event)
     local eventdefs=remote.call("warptorio","get_events")
     script.on_event(eventdefs["on_warp"], on_warp)
 end
 
+script.on_load(register_warptorio_events)
 script.on_init(on_init)

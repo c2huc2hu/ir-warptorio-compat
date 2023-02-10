@@ -35,3 +35,7 @@ table.insert(data.raw.technology['warptorio-reactor-7'].prerequisites, 'rocket-s
 -- Add shotgun turrets to warptorio damage researches
 table.insert(data.raw.technology["warptorio-physdmg-1"].effects, {type="turret-attack",modifier=0.15,turret_id="scattergun-turret"})
 
+-- Add steel-axe back so that warptorio-axe researches are enabled
+data.raw.technology['steel-axe'].enabled = true
+data.raw.technology['steel-axe'].hidden = false
+data.raw.technology['steel-axe'].unit.count = 10
