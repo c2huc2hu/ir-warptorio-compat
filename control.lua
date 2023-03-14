@@ -10,7 +10,7 @@ function on_warp(event)
 
     -- IR calls this on startup, not when surfaces are generated.
     -- This only adds a steam fissure and not any other modded fissures
-    if math.random() < 0.3 then -- fissures are great if you get them. don't make it too easy :D
+    if math.random() < 0.85 then -- fissures are great if you get them. don't make it too easy :D
         remote.call("ir-world", "allow-surface-fissures", event.newsurface.name, true)
         add_starting_fissure(event.newsurface)
     end

@@ -9,6 +9,7 @@
 local conversion = {
     ["advanced-material-processing"] = "ir-bronze-furnace",
     ["advanced-material-processing-2"] = "ir-electric-furnace",
+    ["flammables"] = "ir-coking"
 }
 
 for _,tech in pairs(data.raw.technology) do
@@ -39,3 +40,8 @@ table.insert(data.raw.technology["warptorio-physdmg-1"].effects, {type="turret-a
 data.raw.technology['steel-axe'].enabled = true
 data.raw.technology['steel-axe'].hidden = false
 data.raw.technology['steel-axe'].unit.count = 10
+
+-- Add toolbelt back so that warptorio toolbelt researches are enabled
+data.raw.technology['toolbelt'].enabled = true
+data.raw.technology['toolbelt'].hidden = false
+data.raw.technology['toolbelt'].unit.count = 10

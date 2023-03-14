@@ -1,4 +1,11 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.0.6
+Date: 2023-03-13
+  Bugfix:
+    - Fix broken prerequisites for warp toolbelt >=2 and warp boiler 2 (now ir-coking)
+  Balance:
+    - Increased steam fissure starting chance to make it worth using (30% -> 85%)
+---------------------------------------------------------------------------------------------------
 Version: 0.0.5
 Date: 2023-02-09
   Bugfix:
