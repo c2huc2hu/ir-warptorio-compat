@@ -8,5 +8,6 @@ This mod does the following:
 - Add a chance to spawn steam fissures in the starting area
 - Fix gem spawning (only on resource-specific planets)
 - Reduce smelting times for crushed/pure metal ores to counteract area impact of adding crushing/washing processes
+- Add chrome-tier chests with larger capacity than steel chests
 
 This mod is not compatible with Warptorio Expansion because many things in the expansion are hardcoded for vanilla. 

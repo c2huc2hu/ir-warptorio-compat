@@ -84,3 +84,34 @@ for suffix, new_time in pairs(smelting_processes_blast) do
     data.raw.recipe['iron'..suffix].energy_required = new_time
 end
 
+
+-- NEW ITEMS
+
+-- Rebalance: Add chrome-tier chests
+-- (sorry about the lazy retinting, everyone)
+local chromium_chest_tint = {r = 1.0, g = 0.9, b = 0.7, a = 1.0}
+
+local chromium_chest_container = table.deepcopy(data.raw["container"]["tin-chest"])
+chromium_chest_container.name = 'chromium-chest'
+chromium_chest_container.minable.result = 'chromium-chest'
+chromium_chest_container.next_upgrade = nil
+chromium_chest_container.max_health = 400
+chromium_chest_container.inventory_size = 60
+chromium_chest_container.picture.layers[1].tint = chromium_chest_tint
+
+local chromium_chest_item = table.deepcopy(data.raw["item"]["tin-chest"])
+chromium_chest_item.name = 'chromium-chest'
+chromium_chest_item.place_result = 'chromium-chest'
+chromium_chest_item.order = "a[items]-d[chromium-chest]"
+chromium_chest_item.icons[1].tint = chromium_chest_tint
+
+local chromium_chest_recipe = table.deepcopy(data.raw["recipe"]["tin-chest"])
+chromium_chest_recipe.name = "chromium-chest"
+chromium_chest_recipe.result = "chromium-chest"
+chromium_chest_recipe.order = "a[items]-d[chromium-chest]"
+chromium_chest_recipe.ingredients = {{"chromium-rod", 6}, {"chromium-plate", 6}}
+
+data:extend({chromium_chest_container, chromium_chest_item, chromium_chest_recipe})
+
+data.raw["container"]["steel-chest"].next_upgrade = 'chromium-chest'
+table.insert(data.raw["technology"]["ir-electroplating"].effects, {recipe = "chromium-chest", type = "unlock-recipe"})

@@ -1,6 +1,8 @@
 ---------------------------------------------------------------------------------------------------
 Version: 0.0.7
 Date: 2023-04-07
+  Changes:
+    - Add a chrome chest with 60 slots of storage as an upgrade to steel chests
   Balance:
     - Decrease smelting times for producing ingots/molten metal from crushed/pure ores
 ---------------------------------------------------------------------------------------------------
