@@ -45,3 +45,42 @@ data.raw.technology['steel-axe'].unit.count = 10
 data.raw.technology['toolbelt'].enabled = true
 data.raw.technology['toolbelt'].hidden = false
 data.raw.technology['toolbelt'].unit.count = 10
+
+
+-- RECIPE MODIFICATIONS
+
+-- Rebalance: Reduce smelting time for crushed and pure ores to make it
+-- worth the extra space needed for processing
+
+local mined_metals = {'copper', 'tin', 'iron', 'gold'}
+local rare_metals = {'nickel', 'lead', 'chromium', 'platinum'}
+
+local smelting_processes_crushed = {
+    ['-ingot-from-crushed'] = 5,
+}
+local smelting_processes_washed = {
+    ['-ingot-from-pure'] = 6,
+    ['-molten-from-pure'] = 8,
+}
+local smelting_processes_blast = {
+    ['-ingot-from-crushed-blast'] = 5,
+    ['-ingot-from-pure-blast'] = 6,
+}
+
+for _, metal in ipairs(mined_metals) do
+    for suffix, new_time in pairs(smelting_processes_crushed) do
+        data.raw.recipe[metal..suffix].energy_required = new_time
+    end
+    for suffix, new_time in pairs(smelting_processes_washed) do
+        data.raw.recipe[metal..suffix].energy_required = new_time
+    end
+end
+for _, metal in ipairs(rare_metals) do
+    for suffix, new_time in pairs(smelting_processes_washed) do
+        data.raw.recipe[metal..suffix].energy_required = new_time
+    end
+end
+for suffix, new_time in pairs(smelting_processes_blast) do
+    data.raw.recipe['iron'..suffix].energy_required = new_time
+end
+

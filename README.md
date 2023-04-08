@@ -7,5 +7,6 @@ This mod does the following:
 - Add damage bonuses in warp bullet techs to shotgun turrets
 - Add a chance to spawn steam fissures in the starting area
 - Fix gem spawning (only on resource-specific planets)
+- Reduce smelting times for crushed/pure metal ores to counteract area impact of adding crushing/washing processes
 
 This mod is not compatible with Warptorio Expansion because many things in the expansion are hardcoded for vanilla. 
