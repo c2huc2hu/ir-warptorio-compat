@@ -1,6 +1,14 @@
 require("control-functions") -- add_starting_fissure
 
 function on_warp(event)
+    -- Apply surface modifications to newly generated surfaces (i.e. not Nauvis and not the surface marked as a homeworld)
+    local homeworld_surface = remote.call("warptorio","GetHomeSurface")
+    if event.newsurface.name ~= "nauvis" and event.newsurface ~= homeworld_surface then
+        add_surface_modifications(event)
+    end
+end
+
+function add_surface_modifications(event)
     -- Add surface gems on resource-specific worlds
     for _,flag in pairs(event.newplanet.flags) do
         if flag == "resource-specific" then
