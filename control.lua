@@ -22,6 +22,9 @@ function add_surface_modifications(event)
         remote.call("ir-world", "allow-surface-fissures", event.newsurface.name, true)
         add_starting_fissure(event.newsurface)
     end
+
+    -- Bonus feature: Add a few junk piles when warping
+    add_junkpiles(event.newsurface, 3)
 end
 
 
