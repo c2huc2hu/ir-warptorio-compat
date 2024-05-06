@@ -1,5 +1,18 @@
 ------------------------------------------------------------------------------------------------------------------------------------------------------
 
+-- PROTOTYPE CRASHES
+-- IR sprites do not have hr versions, but Warptorio tries to set these. Delete them
+
+for _, container in pairs(data.raw.container) do
+    print(_)
+    print(serpent.block(container.picture))
+    if container.picture.layers then
+        for _, layer in pairs(container.picture.layers) do
+            layer.hr_version = nil;
+        end
+    end
+end
+
 -- TECHNOLOGY
 
 -- print(serpent.block(data.raw.technology))
@@ -107,6 +120,7 @@ chromium_chest_item.icons[1].tint = chromium_chest_tint
 
 local chromium_chest_recipe = table.deepcopy(data.raw["recipe"]["tin-chest"])
 chromium_chest_recipe.name = "chromium-chest"
+chromium_chest_recipe.enabled = false
 chromium_chest_recipe.result = "chromium-chest"
 chromium_chest_recipe.order = "a[items]-d[chromium-chest]"
 chromium_chest_recipe.ingredients = {{"chromium-rod", 6}, {"chromium-plate", 6}}
